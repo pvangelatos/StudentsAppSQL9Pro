@@ -2,6 +2,7 @@ using Serilog;
 using StudentsAppSQL9Pro.Configuration;
 using StudentsAppSQL9Pro.Core;
 using StudentsAppSQL9Pro.DAO;
+using StudentsAppSQL9Pro.Services;
 
 namespace StudentsAppSQL9Pro
 {
@@ -26,8 +27,8 @@ namespace StudentsAppSQL9Pro
 
             // Creates an insatnce of DBHelper for each HTTP request
             builder.Services.AddScoped<DBHelper>();
-
             builder.Services.AddScoped<IStudentDAO, StudentDAOImpl>();
+            builder.Services.AddScoped<IStudentService, StudentServiceImpl>();
             
 
             var app = builder.Build();
